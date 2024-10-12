@@ -12,6 +12,6 @@ Test User:
 
 Comments:
 
-The postman API test JSON file is contained in the test_cases directory.
+The postman API test JSON file is contained in the main directory.
 
-All screenshots are contained in test_cases/screenshots directory.
+All screenshots are contained in screenshots directory - subdirectories for each type, subdirectories in /postman for each route test.
