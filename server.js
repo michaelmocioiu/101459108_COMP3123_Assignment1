@@ -1,17 +1,17 @@
 const express = require('express');
-const connectDB = require('./config/db');  // Import the MongoDB connection function
+const connectDB = require('./config/db');
+const userRoutes = require('./routes/userRoutes');
+const employeeRoutes = require('./routes/employeeRoutes');
 
-// Initialize Express
 const app = express();
-
-// Connect to MongoDB
 connectDB();
 
-// Define a test route
-app.get('/', (req, res) => {
-    res.send('MongoDB connection test successful!');
-});
+// Middleware to parse JSON requests
+app.use(express.json());
 
-// Start the server
+// Mount the routes
+app.use('/api/v1/user', userRoutes);
+app.use('/api/v1/emp/employees', employeeRoutes);
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
